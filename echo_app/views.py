@@ -8,3 +8,6 @@ def sign_in(request):
 
 def create(request):
     return render (request,'create.html')
+
+def sign_out(request):
+    return render (request, 'auth-sign-out.html')
