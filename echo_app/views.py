@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect 
 from django.contrib.auth import authenticate, login as login_user, logout as logout_user
 from django.contrib.auth.models import User
-from django.contrib import messages
 from .models import Note
 
 
@@ -25,14 +24,11 @@ def login(request):
     
         if user is not None:
             login_user(request, user)
-            return render(request, 'create.html')
-        
-        else:
-            messages.success(request, ' Try again ')
+            return redirect('create')
             
         
     else:
-        return render(request, 'auth-sign-in.html')
+        return render(request, 'auth-sign-in.html') 
     
     
 def logout(request):
@@ -41,13 +37,14 @@ def logout(request):
 
 def create(request):
     if request.method == 'POST':
-        title = request.POST['title']
-        description = request.POST['description']
-        print(title, description)
-        Note.objects.create(title=title, description = description)
+        Title = request.POST['Title']
+        Description = request.POST['Description']
+        print(Title, Description)
+        Note.objects.create(Title=Title, Description = Description)
+    return render(request, 'create.html')
 
 def index(request):
-    return render (request, 'index.html')
+    return render(request, 'index.html')
 
 def success(request):
     return render(request,'success.html')

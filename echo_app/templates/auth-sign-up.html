@@ -33,11 +33,12 @@
                      </div>  
                      <h3 class="mb-2">Sign Up</h3>
                      <p>Create your  account.</p>
-                     <form>
+                     <form method = 'POST'>
+                        {%csrf_token%}
                         <div class="row">
                            <div class="col-lg-6">
                               <div class="floating-label form-group">
-                                 <input class="floating-input form-control" type="text" placeholder=" ">
+                                 <input class="floating-input form-control" name="username" type="text" placeholder=" ">
                                  <label>Username</label>
                               </div>
                            </div>
@@ -45,7 +46,7 @@
                            </div>
                            <div class="col-lg-6">
                               <div class="floating-label form-group">
-                                 <input class="floating-input form-control" type="password" placeholder=" ">
+                                 <input class="floating-input form-control" name ='password' type="password" placeholder=" ">
                                  <label>Password</label>
                               </div>
                            </div>
