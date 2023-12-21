@@ -6,3 +6,6 @@ class Note(models.Model):
     description = models.TextField(null = True,blank =True)
     user = models.ForeignKey(User,on_delete= models.CASCADE,null = True,blank =True)
     created_at =models.DateTimeField(null = True, auto_now_add = True)
+ 
+ 
+  

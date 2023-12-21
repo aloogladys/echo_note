@@ -25,6 +25,9 @@ def login(request):
         if user is not None:
             login_user(request, user)
             return redirect('create')
+        
+        else:
+            return redirect('/login')
             
         
     else:
@@ -36,17 +39,23 @@ def logout(request):
     return redirect('login_page')   
 
 def create(request):
+    if request.user.is_authenticated == False:
+        return redirect('/login')
+
+    
     if request.method == 'POST':
         title = request.POST['title']
         description = request.POST['description']
         print(title, description)
-        Note.objects.create(title=title, description = description)
+        Note.objects.create(title=title, description = description ,user = request.user)
     
-    note_queryset = Note.objects.all()
+    note_queryset = Note.objects.filter(user = request.user )
     print(note_queryset)
     context = {'note_queryset':note_queryset}
 
     return render(request, 'create.html', context)
+
+
 
 def index(request):
     return render(request, 'index.html')
