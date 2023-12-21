@@ -37,11 +37,16 @@ def logout(request):
 
 def create(request):
     if request.method == 'POST':
-        Title = request.POST['Title']
-        Description = request.POST['Description']
-        print(Title, Description)
-        Note.objects.create(Title=Title, Description = Description)
-    return render(request, 'create.html')
+        title = request.POST['title']
+        description = request.POST['description']
+        print(title, description)
+        Note.objects.create(title=title, description = description)
+    
+    note_queryset = Note.objects.all()
+    print(note_queryset)
+    context = {'note_queryset':note_queryset}
+
+    return render(request, 'create.html', context)
 
 def index(request):
     return render(request, 'index.html')
