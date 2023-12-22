@@ -62,3 +62,18 @@ def index(request):
 
 def success(request):
     return render(request,'success.html')
+
+def delete(request):
+    title = request.POST['title']
+    description = request.POST['description']
+    note =Note.objects.create(title=title, description = description ,user = request.user)
+    note.delete()
+    return redirect('create')
+
+def logout(request):
+    logout_user(request)
+    return redirect('home')
+
+def test(request):
+    return render(request, 'test.html')
+
