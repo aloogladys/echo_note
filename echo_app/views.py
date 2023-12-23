@@ -49,9 +49,14 @@ def create(request):
         print(title, description)
         Note.objects.create(title=title, description = description ,user = request.user)
     
-    note_queryset = Note.objects.filter(user = request.user )
-    print(note_queryset)
-    context = {'note_queryset':note_queryset}
+    notes = Note.objects.filter(user = request.user )
+    # user = request.user
+    print(notes)
+    context = {
+        'note_queryset':notes,
+        'user':request.user,
+        'welcome_message':'hello world'
+    }
 
     return render(request, 'create.html', context)
 
@@ -63,10 +68,8 @@ def index(request):
 def success(request):
     return render(request,'success.html')
 
-def delete(request):
-    title = request.POST['title']
-    description = request.POST['description']
-    note =Note.objects.create(title=title, description = description ,user = request.user)
+def delete_note(request,id):
+    note = Note.objects.get(id=id)
     note.delete()
     return redirect('create')
 
