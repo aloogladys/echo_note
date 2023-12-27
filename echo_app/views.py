@@ -69,6 +69,8 @@ def success(request):
     return render(request,'success.html')
 
 def delete_note(request,id):
+    if request.user.is_authenticated == False:
+        return redirect('login/')
     note = Note.objects.get(id=id)
     note.delete()
     return redirect('create')
