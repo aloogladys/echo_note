@@ -40,7 +40,7 @@ def logout(request):
 
 def create(request):
     if request.user.is_authenticated == False:
-        return redirect('/login')
+        return redirect('login')
 
     
     if request.method == 'POST':
@@ -70,7 +70,8 @@ def success(request):
 
 def delete_note(request,id):
     if request.user.is_authenticated == False:
-        return redirect('login/')
+        return redirect('login')
+
     note = Note.objects.get(id=id)
     note.delete()
     return redirect('create')
