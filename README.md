@@ -1,0 +1,1 @@
+A universal note-taking website aims to be the digital companion that transcends boundaries, providing a seamless, accessible, and intuitive platform for capturing the mosaic of thoughts, plans, and inspirations that constitute the tapestry of human experience.
