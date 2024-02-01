@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>create page</h1>
+    </head>
+
+    <body>
+        <form method = 'POST'>
+            {%csrf_token%}
+            <div>
+                <input type = 'text' name = 'name' class = 'input'>
+                <label for ''>name</label>
+            </div>
+
+            <div>
+                <input type = 'text' name = 'description' class = 'input'>
+                <label for ''>description</label>
+            </div>
+
+            <input type="submit" value="Save" class="btn" />
+
+
+        </form>
+    </body>
+</html>
+

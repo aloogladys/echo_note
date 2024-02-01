@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>login page</h1>
+    </head>
+
+    <body>
+        <form method = 'POST'>
+            {%csrf_token%}
+            <div>
+                <input type = 'text' name = 'username' class = 'input'>
+                <label for ''>username</label>
+            </div>
+
+            <div>
+                <input type = 'password' name = 'password' class = 'input'>
+                <label for ''>password</label>
+            </div>
+
+            <input type="submit" value="Log in" class="btn" />
+
+
+        </form>
+    </body>
+</html>
+

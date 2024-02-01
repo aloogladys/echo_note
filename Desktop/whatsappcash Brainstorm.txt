@@ -1,0 +1,27 @@
+Default Account ?
+the default account will be
+
+ledger structure - microservice architecture ... 
+
+Transaction - moving money from wallet A to wallet B
+
+
+{
+	
+	transaction_id: abcd-123-223r4-uuid
+	amount: 10
+	currency: 'KES',
+	debit_account: 254746372071,
+	credit_account: 254746372071,
+	timestamp: 	'202205041235'		
+
+}
+
+
+Afrisoft Open Payments API - FREE 
+
+
+Every program i design will be a Realm with users which are the users transacting under that realm 
+Every Realm has a specific amount of money within the system
+
+The payment engine has to keep a transaction history of each ream and also the balances

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>list page</h1>
+    </head>
+
+    <body>
+        <form method = 'POST'>
+            {%csrf_token%}
+
+
+            {%for n in query_set%}
+            <p>{{n.name}}</p>
+
+            {% endfor %}
+            
+
+
+        </form>
+    </body>
+</html>
+
